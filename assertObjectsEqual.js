@@ -19,6 +19,7 @@ const eqObjects = (object1, object2) => {
 
 // FUNCTION IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
+  // util library's inspect function
   const inspect = require('util').inspect;
   if (!eqObjects(actual, expected)) {
     console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)}  !==  ${inspect(expected)}`);
