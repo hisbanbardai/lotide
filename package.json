@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@hisbanshiraz/lotide",
   "version": "1.0.0",
-  "description": "Implementing lotide library",
+  "description": "Lotide provides utility functions for iterating over strings, arrays and objects as well as manipulating and testing them. ",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/hisbanbardai/lotide.git"
   },
-  "author": "",
+  "author": "Hisban Shiraz <hisbanbardai@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hisbanbardai/lotide/issues"
