@@ -1,21 +1,4 @@
-const eqObjects = (object1, object2) => {
-  if (Object.keys(object1).length !== Object.keys(object2).length) {
-    return false;
-  } else {
-    for (const key1 of Object.keys(object1)) {
-      if (Array.isArray(object1[key1]) && Array.isArray(object2[key1])) {
-        if (!eqArrays(object1[key1], object2[key1])) {
-          return false;
-        }
-      } else {
-        if (object1[key1] !== object2[key1]) {
-          return false;
-        }
-      }
-    }
-    return true;
-  }
-};
+const eqObjects = require('./eqObjects');
 
 // FUNCTION IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
@@ -30,3 +13,5 @@ const assertObjectsEqual = function(actual, expected) {
 const shirtObject = { color: "red", size: "medium" };
 const anotherShirtObject = { size: "medium", color: "red" };
 assertObjectsEqual(shirtObject, anotherShirtObject);
+
+module.exports = assertObjectsEqual;
