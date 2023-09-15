@@ -1,22 +1,36 @@
-const assertEqual = require('../assertEqual')
-const tail = require('../tail')
+const tail = require("../tail");
+const assert = require("chai").assert;
 
-// TEST CODE
-// Test Case: Check the original array
-let words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3); // original array should still have 3 elements!
+describe("#tail", () => {
+  it("original array should still have 3 elements. returns 3 for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    let words = ["Yo Yo", "Lighthouse", "Labs"];
+    tail(words);
+    assert.strictEqual(words.length, 3);
+  });
 
-words = ["Yo Yo"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3); // original array should still have 1 elements!
+  it("returns length 2 for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    let words = ["Yo Yo", "Lighthouse", "Labs"];
+    let result = tail(words);
+    assert.strictEqual(result.length, 2);
+  });
 
-words = [""];
-let result = tail(words); // An empty array should yield an empty array for its tail
-assertEqual(result.length, 3); 
+  it("returns 'Lighthouse' as first element for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    let words = ["Yo Yo", "Lighthouse", "Labs"];
+    let result = tail(words);
+    assert.strictEqual(result[0], "Lighthouse");
+  });
 
-words = ["Hello", "Lighthouse", "Labs"];
-result = tail(words);
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+  it("returns ['Lighthouse', 'Labs'] for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    let words = ["Yo Yo", "Lighthouse", "Labs"];
+    let result = tail(words);
+    assert.deepEqual(result, ["Lighthouse", "Labs"]);
+  });
+
+  it("returns [] for []", () => {
+    let words = [];
+    let result = tail(words);
+    assert.deepEqual(result, []);
+  });
+});
+
+
